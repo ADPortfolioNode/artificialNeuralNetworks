@@ -180,7 +180,7 @@ def forward_propagate(network, inputs):
     return network_predictions  
 
 predictions = forward_propagate(small_network, inputs)
-print('the predicted value by th enetwork for the given input is {}'.format(np.around(predictions[0], decimals=4)))
+print(f'the predicted value by th enetwork for the given input is {}'.format(np.around(predictions[0], decimals=4)))
 
 
 print('new network = my_network >>>>>>>>>>>>>>>>>>>>>>>>>>>')
@@ -188,7 +188,7 @@ print('new network = my_network >>>>>>>>>>>>>>>>>>>>>>>>>>>')
 my_network = initialize_network(5, 3, [2, 3, 2], 3)
 inputs = np.around(np.random.uniform(size=5), decimals=2)
 predictions = forward_propagate(my_network, inputs)
-print('The predicted values by the my_network for the given input are {}'.format(predictions))
+print(f'The predicted values by the my_network for the given input are {}'.format(predictions))
 
 print('new network = new_net >>>>>>>>>>>>>>>>>>>>>>>>>>>')
 new_net = initialize_network(5,3,[3,9,3],3)
