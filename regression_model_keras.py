@@ -32,27 +32,33 @@ predictors = concrete_data[concrete_data_columns[concrete_data_columns != 'Stren
 
 target = concrete_data['Strength'] # Strength column
 
-print("predictors are ",predictors.head())
-print("target is ",target.head())
+print("predictors are <<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+print(predictors.head())
+print("target is <<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+print(target.head())
 
 print('normalize the data by substracting the mean and dividing by the standard deviation')
 
 predictors_norm = (predictors - predictors.mean()) / predictors.std()
-print('full sataset  gives us : ',predictors_norm.head())
+print('full dataset  gives us :<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+print(predictors_norm.head())
 
 n_cols = predictors_norm.shape[1] 
 # number of predictors
 #we can use for building out network
 
-print('MODELING 2')
+print('MODELING 2 LAYER NETWORK<<<<<<<<<<<<<<<<<<<<<<<<<<<')
 print('create a model that has two hidden layers, each of 50 hidden units.')
 # define regression model
 def regression_model():
     # create model
     model = Sequential()
-    model.add(Dense(50, activation='relu', input_shape=(n_cols,)))
-    model.add(Dense(50, activation='relu'))
-    model.add(Dense(1))
+    model.add(Dense(50, activation='relu', input_shape=(n_cols,)))  
+    # Only the first layer needs the input_shape
+    model.add(Dense(32, activation='relu'))  
+    # Subsequent layers infer their input shape
+    model.add(Dense(1))  
+    # Final layer
     
     # compile model
     model.compile(optimizer='adam', loss='mean_squared_error')
