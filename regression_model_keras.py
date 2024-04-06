@@ -50,14 +50,13 @@ n_cols = predictors_norm.shape[1]
 print('MODELING 2 LAYER NETWORK<<<<<<<<<<<<<<<<<<<<<<<<<<<')
 print('create a model that has two hidden layers, each of 50 hidden units.')
 # define regression model
-def regression_model():
+def regression_model(n_cols):
     # create model
     model = Sequential()
-    model.add(Dense(50, activation='relu', input_shape=(n_cols,)))  
-    # Only the first layer needs the input_shape
-    model.add(Dense(32, activation='relu'))  
-    # Subsequent layers infer their input shape
-    model.add(Dense(1))  
+    model.add(Input(shape=(n_cols,)))  # Use Input layer to set input shape
+    model.add(Dense(50, activation='relu'))#hidden_layer_1
+    model.add(Dense(50, activation='relu'))#hidden
+    model.add(Dense(1)) #output layer
     # Final layer
     
     # compile model
